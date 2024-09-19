@@ -1,0 +1,8 @@
+.DS_Store
+.cmake
+.idea
+json
+exiv2
+
+cmake-build-debug
+/build_wasm/
