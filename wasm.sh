@@ -19,4 +19,4 @@ cp build_wasm/exif-wasm.js /Users/iavian/Downloads/www-exif/src/.
 
 cp build_wasm/exif-wasm.wasm /Users/iavian/Downloads/www-exif/src/.
 
-python3 -m http.server -d ./www
+#python3 -m http.server -d ./www

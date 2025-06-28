@@ -6,7 +6,7 @@ ExifParser::ExifParser(const std::string &file, const std::string &cSum) {
     checksum = cSum;
 }
 
-bool ExifParser::exif_delete_all() {
+bool ExifParser::exif_delete_all() const {
     Exiv2::XmpParser::initialize();
     ::atexit(Exiv2::XmpParser::terminate);
     auto image = Exiv2::ImageFactory::open(fileName);
@@ -23,7 +23,7 @@ bool ExifParser::exif_delete_all() {
     return true;
 }
 
-std::string ExifParser::exif_delete(const std::string &key) {
+std::string ExifParser::exif_delete(const std::string &key) const {
     nlohmann::json final_result = nlohmann::json::object();
     final_result.emplace("success", false);
     final_result.emplace("key", key);
@@ -60,7 +60,7 @@ bool ExifParser::internal_exif_delete(Exiv2::ExifData &exifData, const std::stri
     }
 }
 
-std::string ExifParser::exif_update(const std::string &key, const std::string &value) {
+std::string ExifParser::exif_update(const std::string &key, const std::string &value) const {
     nlohmann::json final_result = nlohmann::json::object();
     final_result.emplace("success", false);
     final_result.emplace("key", key);
@@ -101,7 +101,7 @@ bool ExifParser::internal_exif_update(Exiv2::ExifData &exifData, const std::stri
     }
 }
 
-std::string ExifParser::exif_add(const std::string &key, const std::string &value, const int type) {
+std::string ExifParser::exif_add(const std::string &key, const std::string &value, const int type) const {
     nlohmann::json final_result = nlohmann::json::object();
     final_result.emplace("success", false);
     final_result.emplace("key", key);
@@ -143,7 +143,7 @@ bool ExifParser::internal_exif_add(Exiv2::ExifData &exifData, const std::string 
     }
 }
 
-std::string ExifParser::exif_read() {
+std::string ExifParser::exif_read() const {
     Exiv2::XmpParser::initialize();
     ::atexit(Exiv2::XmpParser::terminate);
     auto image = Exiv2::ImageFactory::open(fileName);

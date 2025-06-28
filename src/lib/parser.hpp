@@ -1,4 +1,4 @@
-#include <iostream>
+#pragma once
 #include <string>
 #include <exiv2/exiv2.hpp>
 #include "nlohmann/json.hpp"
@@ -18,15 +18,15 @@ private:
 public:
     explicit ExifParser(const std::string &file, const std::string &cSum);
 
-    std::string exif_read();
+    std::string exif_read() const;
 
-    std::string exif_delete(const std::string &key);
+    std::string exif_delete(const std::string &key) const;
 
-    std::string exif_update(const std::string &key, const std::string &value);
+    std::string exif_update(const std::string &key, const std::string &value) const;
 
-    std::string exif_add(const std::string &key, const std::string &value, const int type);
+    std::string exif_add(const std::string &key, const std::string &value, int type) const;
 
-    bool exif_delete_all();
+    bool exif_delete_all() const;
 
     ~ExifParser() {
 
